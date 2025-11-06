@@ -61,78 +61,12 @@ def find_max_distance():
         print(f"Неожиданная ошибка: {e}")
         return None
 
-# Альтернативная версия с более эффективным алгоритмом
-def find_max_distance_optimized():
-    try:
-        # Чтение количества зданий
-        n = int(input().strip())
-        
-        if n <= 0:
-            raise ValueError("Количество зданий должно быть положительным числом")
-        
-        # Чтение типов зданий
-        buildings_input = input().strip()
-        if not buildings_input:
-            raise ValueError("Вторая строка не может быть пустой")
-            
-        buildings = list(map(int, buildings_input.split()))
-        
-        if len(buildings) != n:
-            raise ValueError(f"Ожидалось {n} зданий, но получено {len(buildings)}")
-        
-        # Проверка типов зданий
-        valid_types = {0, 1, 2}
-        for building in buildings:
-            if building not in valid_types:
-                raise ValueError(f"Недопустимый тип здания: {building}")
-        
-        if 1 not in buildings:
-            raise ValueError("Должен быть хотя бы один жилой дом")
-        if 2 not in buildings:
-            raise ValueError("Должен быть хотя бы один магазин")
-        
-        # Более эффективный алгоритм: предварительно вычисляем расстояния
-        # Создаем массив расстояний до ближайшего магазина слева
-        left_dist = [float('inf')] * n
-        last_shop = -float('inf')
-        
-        for i in range(n):
-            if buildings[i] == 2:
-                last_shop = i
-            left_dist[i] = i - last_shop
-        
-        # Создаем массив расстояний до ближайшего магазина справа
-        right_dist = [float('inf')] * n
-        last_shop = float('inf')
-        
-        for i in range(n-1, -1, -1):
-            if buildings[i] == 2:
-                last_shop = i
-            right_dist[i] = last_shop - i
-        
-        # Находим максимальное расстояние для жилых домов
-        max_distance = 0
-        for i in range(n):
-            if buildings[i] == 1:
-                min_dist = min(left_dist[i], right_dist[i])
-                if min_dist > max_distance:
-                    max_distance = min_dist
-        
-        return max_distance
-        
-    except ValueError as e:
-        print(f"Ошибка ввода данных: {e}")
-        raise  # Пробрасываем исключение дальше
-    except Exception as e:
-        print(f"Неожиданная ошибка: {e}")
-        raise
-
 # Основная программа
 def main():
     try:
-        result = find_max_distance_optimized()
+        result = find_max_distance()
         if result is not None:
-            print(result)
+            print("Результат -", result)
     except Exception:
         print("Программа завершена с ошибкой")
 
