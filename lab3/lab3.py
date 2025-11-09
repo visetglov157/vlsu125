@@ -13,7 +13,7 @@ def find_max_distance():
             raise ValueError("Вторая строка не может быть пустой")
             
         buildings = list(map(int, buildings_input.split()))
-        # len - возвращает кол-во элементов в объекте
+        
         # Проверка соответствия количества зданий
         if len(buildings) != n:
             raise ValueError(f"Ожидалось {n} зданий, но получено {len(buildings)}")
