@@ -96,11 +96,6 @@ class TestBuildingDistance(unittest.TestCase):
         builtins.input = lambda: test_inputs.pop(0)
         
         result = lab3.find_max_distance()
-        # Для [2, 1, 2]:
-        # Единственный дом на позиции 1
-        # Ближайший магазин слева: позиция 0 -> расстояние 1
-        # Ближайший магазин справа: позиция 2 -> расстояние 1
-        # МАКСИМУМ = 1
         self.assertEqual(result, 1)
         builtins.input = original_input
 
