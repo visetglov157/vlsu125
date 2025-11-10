@@ -1,12 +1,15 @@
 import random
 
 def generate_numbers_with_sets():
+    # Создание множеств для хранения чисел
     set_1_to_10 = set()
     set_10_to_30 = set()
+    # len - возвращает длину(кол-во элементов) объекта
     while len(set_1_to_10) < 5:
         set_1_to_10.add(random.randint(1, 10))
     while len(set_10_to_30) < 10:
         set_10_to_30.add(random.randint(10, 30))
+    # Преобразование множества в списки
     numbers_1_to_10 = list(set_1_to_10)
     numbers_10_to_30 = list(set_10_to_30)
     all_numbers = numbers_1_to_10 + numbers_10_to_30
