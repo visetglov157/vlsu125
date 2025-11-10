@@ -11,7 +11,6 @@ def generate_numbers_with_sets():
     numbers_10_to_30 = list(set_10_to_30)
     all_numbers = numbers_1_to_10 + numbers_10_to_30
     
-    # Вывод результатов
     print("5 уникальных чисел от 1 до 10:", numbers_1_to_10)
     print("10 уникальных чисел от 10 до 30:", numbers_10_to_30)
     print("Все 15 уникальных чисел:", all_numbers)
