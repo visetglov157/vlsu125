@@ -7,6 +7,7 @@ def calculate_numbers():
             div_by_4 = num % 4 == 0
             # Делится на 3 ИЛИ на 4, но НЕ на оба
             if (div_by_3 or div_by_4) and not (div_by_3 and div_by_4):
+                #Добавление полученного числа во множество
                 result.add(num)
         return result
     except Exception as e:

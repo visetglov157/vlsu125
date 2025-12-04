@@ -8,10 +8,13 @@ def find_max_distance():
             raise ValueError("Количество зданий должно быть положительным числом")
         
         # Чтение типов зданий
-        buildings_input = input().strip()
+        buildings_input = input()
         if not buildings_input:
             raise ValueError("Вторая строка не может быть пустой")
-            
+        # Функция split сканирует всю строку и разделяет ее в случае нахождения разделителя.
+        '''Функция map() в Python — это встроенная функция, которая применяет указанный метод 
+        ко всем элементам одного или нескольких итерируемых объектов, 
+        после чего возвращает итератор с результатами этих применений.'''
         buildings = list(map(int, buildings_input.split()))
         
         # Проверка соответствия количества зданий
@@ -33,6 +36,7 @@ def find_max_distance():
         shops = []
         for i in range(n):
             if buildings[i] == 2:
+            #append - добавление новых элементов в список
                 shops.append(i)
         
         max_distance = 0
